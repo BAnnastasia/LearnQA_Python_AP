@@ -23,11 +23,14 @@ class TestExercise13:
         )
         assert requests1.status_code == 200, "Wrong response code"
 
-        assert "platform" in requests1.json(),"There is no 'platform' parameter in the response"
-        assert platform == requests1.json()['platform'], f"Platform: '{platform}' from data_test is not equal to platform from response: '{requests1.json()['platform']}'"
+        assert "platform" in requests1.json(),f"There is no 'platform' parameter in the response, User-Agent: '{user_agent}"
+        assert platform == requests1.json()['platform'], (f"Platform: '{platform}' from data_test is not equal to platform from response: '{requests1.json()['platform']}'  "
+                                                          f"User-Agent: '{user_agent}'")
 
-        assert "browser" in requests1.json(), "There is  no 'browser' parameter in the response"
-        assert browser == requests1.json()['browser'],  f"Browser: '{browser}' from data_test is not equal to browser from response: '{requests1.json()['browser']}'"
+        assert "browser" in requests1.json(), f"There is  no 'browser' parameter in the response, User-Agent: '{user_agent}'"
+        assert browser == requests1.json()['browser'],  (f"Browser: '{browser}' from data_test is not equal to browser from response: '{requests1.json()['browser']}'  "
+                                                         f"User-Agent: '{user_agent}'")
 
-        assert "device" in requests1.json(), "There is  no 'device' parameter in the response"
-        assert device == requests1.json()['device'], f"Device: '{device}' from data_test is not equal to device from response: '{requests1.json()['device']}'"
+        assert "device" in requests1.json(), f"There is  no 'device' parameter in the response, User-Agent: '{user_agent}"
+        assert device == requests1.json()['device'], (f"Device: '{device}' from data_test is not equal to device from response: '{requests1.json()['device']}'  "
+                                                      f"User-Agent: '{user_agent}")
